@@ -6,25 +6,24 @@ let sender;
 if (url.searchParams.get('by') != null) {
   sender = url.searchParams.get('by');
 } else {
-  sender = "Febrian";
+  sender = "Aku";
 }
 
 
 document.querySelector(".tombol").addEventListener('click', function () {
-  Swal.fire("Hallo Pacarku", "Aku ada pertanyaan nih buat kamu yangg", "question").then(function () {
-    Swal.fire("Jawab yang jujur ya!").then(function () {
-      Swal.fire("Awas aja kalau kamu bohong", "", "error").then(function () {
+  Swal.fire("Halo sayang!", "Aku ada pertanyaan buat kamu nih.", "question").then(function () {
+    Swal.fire("Harus jawab jujur ya!").then(function () {
+      Swal.fire("Gak boleh bohong!", "", "error").then(function () {
 
         const {
           value: name
         } = Swal.fire({
-          title: 'Masukin nama kamu dulu',
+          title: 'Coba masukin nama kamu dulu deh.',
           input: 'text',
           inputLabel: '',
-          showCancelButton: true,
           inputValidator: (value) => {
             if (!value) {
-              return 'Isi dulu dong beb'
+              return 'Ihh isi dulu:('
             } else {
               nama = value;
             }
@@ -41,10 +40,10 @@ document.querySelector(".tombol").addEventListener('click', function () {
             if (result.isConfirmed) {
               Swal.fire(`${sender} juga sayang banget sama ${nama}`).then(function () {
                 Swal.fire({
-                  title: 'Seberapa sayang emangnya?',
+                  title: 'Seberapa sayang emangnya sama Aku?',
                   icon: 'question',
                   input: 'range',
-                  inputLabel: 'Antara 1 - 100 ya',
+                  inputLabel: 'Antara 1 s/d 100',
                   inputAttributes: {
                     min: 1,
                     max: 100,
@@ -63,14 +62,14 @@ document.querySelector(".tombol").addEventListener('click', function () {
                     }).then((result) => {
                       /* Read more about isConfirmed, isDenied below */
                       if (result.isConfirmed) {
-                        Swal.fire(`Huhu iya ${sender} juga kangen ${nama} , makasihhh yaa`).then(function () {
+                        Swal.fire(`Huhu ${sender} juga kangen ${nama} :(`).then(function () {
                           Swal.fire('Terakhir deh sayang').then(function () {
-                            Swal.fire('Coba klik ikon hati di paling bawah dong')
+                            Swal.fire('Coba kamu klik ikon hati dibawah, ada kejutan buat kamu!')
                           })
                         })
                       } else if (result.isDenied) {
-                        Swal.fire('yahhh , emang ga kangen sama pacar sendiri', '', 'error').then(function () {
-                          Swal.fire('Yaudah deh okee sayangg :((')
+                        Swal.fire('yahhh , emang ga kangen sama aku?:(', '', 'error').then(function () {
+                          Swal.fire('Yaudah deh oke sayang :((')
                         })
                       }
                     })
@@ -78,8 +77,8 @@ document.querySelector(".tombol").addEventListener('click', function () {
                 })
               })
             } else if (result.isDenied) {
-              Swal.fire(`Yakin ga suka sama ${sender}?`, '', 'error').then(function () {
-                Swal.fire('Yaudah dehh okee sayang :((')
+              Swal.fire(`Yakin ga sayang sama ${sender}?:(`, '', 'error').then(function () {
+                Swal.fire('Yaudah deh oke sayang :((')
               })
             }
           })
